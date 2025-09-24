@@ -1,7 +1,7 @@
 # Legal/Policy RAG System (OpenAI + FAISS)
 
 This app ingests legal/policy documents (PDF, DOCX, JSONL), chunks them by sections, indexes them with OpenAI embeddings into a FAISS vector store, and answers user queries with citations. It also supports contradiction detection (NLI), explain mode (plain English), and time-machine compliance (compare historical versions).
-![Uploading WhatsApp Image 2025-09-24 at 15.54.42_d19f12aa.jpg…]()
+ Live Demo at:https://legalanalyzer.streamlit.app/
 
 ## Features
 - Ingestion: PDF, DOCX, JSONL with metadata (doc_id, section_id, version, title, text)
