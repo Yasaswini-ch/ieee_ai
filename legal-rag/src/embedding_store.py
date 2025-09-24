@@ -31,7 +31,7 @@ class EmbeddingStore:
         self.local_model_name = local_model or "sentence-transformers/all-MiniLM-L6-v2"
         self._local_model = None  # lazy init
         # OpenAI (when provider == 'openai')
-        self.client = OpenAI(api_key=get_env("OPENAI_API_KEY"))
+        self.client = None  # lazy init only if provider == 'openai'
         self.embedding_model = get_env("OPENAI_EMBEDDING_MODEL", "text-embedding-3-small")
         # Gemini (when provider == 'gemini')
         self._gemini_configured = False
@@ -88,6 +88,11 @@ class EmbeddingStore:
                 ) from e
         else:  # OpenAI
             try:
+                if self.client is None:
+                    api_key = get_env("OPENAI_API_KEY")
+                    if not api_key:
+                        raise RuntimeError("OPENAI_API_KEY is not set in environment.")
+                    self.client = OpenAI(api_key=api_key)
                 resp = self.client.embeddings.create(model=self.embedding_model, input=texts)
                 vecs = [d.embedding for d in resp.data]
                 arr = np.array(vecs, dtype="float32")
