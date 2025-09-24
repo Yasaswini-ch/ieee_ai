@@ -19,6 +19,7 @@ It also supports **contradiction detection (NLI)**, **explain mode (plain Englis
 - 🌐 **Frontend**: Streamlit web app  
 
 ---
+
 ## Setup
 1) Python 3.10+
 2) Create a virtual environment (recommended)
