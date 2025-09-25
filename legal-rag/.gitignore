@@ -1,0 +1,31 @@
+# Virtual env
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# OS cruft
+.DS_Store
+Thumbs.db
+
+# Environment and secrets
+.env
+*.env
+.streamlit/
+
+# Local data and indexes
+data/index/
+*.faiss
+metadata.jsonl
+
+# Logs
+logs/
+*.log
+
+# Node/Frontend (if any later)
+node_modules/
+build/
+dist/
