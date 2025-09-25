@@ -28,7 +28,7 @@ ensure_dir(index_dir)
 
 # Embedding provider controls
 st.sidebar.subheader("Embedding Provider")
-emb_provider = st.sidebar.selectbox("Provider", options=["OpenAI", "Gemini", "Local"], index=0)
+emb_provider = st.sidebar.selectbox("Provider", options=["Local", "Gemini", "OpenAI"], index=0)
 emb_provider_key = emb_provider.lower()
 local_model = st.sidebar.text_input("Local embedding model", value="sentence-transformers/all-MiniLM-L6-v2") if emb_provider_key == "local" else None
 gem_embed_model = st.sidebar.text_input("Gemini embedding model", value="models/text-embedding-004") if emb_provider_key == "gemini" else None
